@@ -23,11 +23,11 @@ export const FooterItems = () => {
           key={item.key}
           aria-current={active ? "page" : undefined}
           className={cn(
-            "flex items-center gap-3 px-4 rounded-xl transition-all duration-200 min-h-10",
-            "no-underline w-full",
+            "flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-200",
+            "no-underline w-full group",
             active
-              ? "bg-primary/20 text-primary font-medium"
-              : "text-default-800 hover:text-default-900 hover:bg-default-200"
+              ? "bg-primary/20 text-primary-600 font-semibold"
+              : "text-default-700 hover:text-foreground hover:bg-default-200/70"
           )}
           href={item.href || "#"}
           prefetch={true}
@@ -36,8 +36,10 @@ export const FooterItems = () => {
             <Icon
               aria-hidden
               className={cn(
-                "shrink-0 transition-colors w-5 h-5",
-                active && "text-primary"
+                "shrink-0 transition-all w-5 h-5",
+                active
+                  ? "text-primary-600"
+                  : "text-default-700 group-hover:text-foreground"
               )}
               icon={iconName}
             />
@@ -48,9 +50,5 @@ export const FooterItems = () => {
     });
   }, [isActive]);
 
-  return (
-    <div className="flex gap-1 flex-col">
-      <div className="flex gap-1 flex-col">{footerItemsContent}</div>
-    </div>
-  );
+  return <div className="flex gap-1 flex-col">{footerItemsContent}</div>;
 };

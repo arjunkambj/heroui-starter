@@ -25,9 +25,9 @@ const SidebarContent = React.memo(({ onClose }: SidebarContentProps) => {
 
   const containerClasses = useMemo(
     () =>
-      `relative flex h-full flex-1 flex-col bg-content2/95 dark:bg-content1 rounded-3xl transition-all duration-300 ease-in-out ${
+      `relative flex h-full flex-1 flex-col bg-content2/95 dark:bg-content1 transition-all duration-300 ease-in-out ${
         isOpen
-          ? "w-full max-w-full px-5 py-6 opacity-100 overflow-visible sm:ml-6 sm:max-w-66 sm:w-66"
+          ? "w-full max-w-full opacity-100 sm:max-w-66 sm:w-66"
           : "w-0 p-0 opacity-0 overflow-hidden"
       }`,
     [isOpen]
@@ -36,7 +36,7 @@ const SidebarContent = React.memo(({ onClose }: SidebarContentProps) => {
   const scrollShadowClasses = useMemo(
     () =>
       `h-full max-h-full transition-all duration-300 ${
-        isOpen ? "-mx-4 px-4 opacity-100" : "opacity-0"
+        isOpen ? "opacity-100" : "opacity-0"
       }`,
     [isOpen]
   );
@@ -47,7 +47,7 @@ const SidebarContent = React.memo(({ onClose }: SidebarContentProps) => {
 
   const logoSection = useMemo(
     () => (
-      <div className="flex items-center justify-between px-3 py-3">
+      <div className="flex items-center  justify-between px-8 py-3.5 pt-7.5">
         <Logo />
         {/* Close button - only visible on mobile */}
         <Button
@@ -119,20 +119,20 @@ const SidebarContent = React.memo(({ onClose }: SidebarContentProps) => {
   return (
     <div className={containerClasses}>
       {/* Logo and Close Button */}
-      <div className="mb-5">{logoSection}</div>
+      <div className="mb-4">{logoSection}</div>
 
       {/* Overview Item */}
-      <div className="mb-3 px-1">{overviewItem}</div>
+      <div className="mb-3 px-6">{overviewItem}</div>
 
       {/* Main Navigation */}
-      <div className="flex-1 min-h-0">
+      <div className="flex-1 min-h-0 px-6">
         <ScrollShadow className={scrollShadowClasses}>
           {sidebarMenuContent}
         </ScrollShadow>
       </div>
 
       {/* Footer Items */}
-      <div className="mt-auto pt-5 px-1 border-t border-default-200">
+      <div className="mt-auto pt-3 border-t border-default-200 px-6 pb-6">
         {footerItemsContent}
       </div>
     </div>
