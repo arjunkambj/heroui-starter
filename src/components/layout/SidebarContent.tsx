@@ -25,7 +25,7 @@ const SidebarContent = React.memo(({ onClose }: SidebarContentProps) => {
 
   const containerClasses = useMemo(
     () =>
-      `relative flex h-full flex-1 flex-col bg-content2/95 dark:bg-content1 transition-all duration-300 ease-in-out ${
+      `relative flex h-full flex-1 flex-col  transition-all duration-300 ease-in-out ${
         isOpen
           ? "w-full max-w-full opacity-100 sm:max-w-66 sm:w-66"
           : "w-0 p-0 opacity-0 overflow-hidden"

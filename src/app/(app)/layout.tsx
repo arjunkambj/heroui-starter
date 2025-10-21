@@ -12,7 +12,7 @@ export default function DappLayout({ children }: DappLayoutProps) {
   return (
     <AppHeroUIProvider>
       <div className="flex max-h-dvh h-dvh bg-content1 text-foreground">
-        <DashboardSidebar />
+        <DashboardSidebar className="border-r border-default-200/50 bg-content1" />
         <div className="flex flex-1 flex-col">
           <header className="sticky flex items-center justify-between bg-content1 px-6 py-4">
             <SidebarToggle />
